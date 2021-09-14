@@ -1,0 +1,3 @@
+class Simp extends Human{
+
+}
