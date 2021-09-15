@@ -1,13 +1,23 @@
 ArrayList<Objekt> objekter = new ArrayList<Objekt>();
+ArrayList<Platform> platforme = new ArrayList<Platform>();
 
 void setup(){
   fullScreen();
   objekter.add(new Player(100,500));
+  objekter.add(new Simp(150,500));
+  platforme.add(new Platform(150,600,200,20,0));
+  platforme.add(new Platform(400,600,200,20,0));
+  platforme.add(new Platform(550,400,200,20,0));
+  rectMode(CENTER);
 }
 
 void draw(){
   clear();
   for(Objekt r: objekter){
+    r.update();
+    r.display();
+  }
+  for(Platform r: platforme){
     r.update();
     r.display();
   }
