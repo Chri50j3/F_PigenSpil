@@ -1,10 +1,13 @@
 class Player extends Human{
+  PImage bow;
 
   Player(float x, float y){
     location = new PVector(x,y);
     speed = new PVector();
     topSpeed = 10;
     player = true;
+    figur = loadImage("Dreng.png");
+    bow = loadImage("Bue.png");
   }
   
   void update(){
@@ -13,7 +16,7 @@ class Player extends Human{
   }
   
   void display(){
-    rect(location.x,location.y,h,b);
+    super.display();
+    image(bow,location.x+20,location.y,50,50);
   }
-  
 }

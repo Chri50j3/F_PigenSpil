@@ -1,5 +1,6 @@
 ArrayList<Objekt> objekter = new ArrayList<Objekt>();
 ArrayList<Platform> platforme = new ArrayList<Platform>();
+PImage background;
 
 void setup(){
   fullScreen();
@@ -9,10 +10,11 @@ void setup(){
   platforme.add(new Platform(400,600,200,20,0));
   platforme.add(new Platform(550,400,200,20,0));
   rectMode(CENTER);
+  imageMode(CENTER);
 }
 
 void draw(){
-  clear();
+  background(200);
   for(Objekt r: objekter){
     r.update();
     r.display();
@@ -32,7 +34,8 @@ void keyPressed(){
       objekter.get(0).speed.x += 1;
       break;
     case'w':
-      objekter.get(0).speed.y -= 20;
+      if(abs(objekter.get(0).speed.y) < 1.1)
+        objekter.get(0).speed.y -= 20;
   }
   
 }

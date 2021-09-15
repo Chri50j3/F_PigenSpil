@@ -8,6 +8,19 @@ class Simp extends Human{
     topSpeed = 10;
     speed.x = 1;
     player = false;
+    
+    int billede = int(random(1,4));
+    switch(billede){
+      case 1:
+        figur = loadImage("Simp1.png");
+        break;
+      case 2:
+        figur = loadImage("Simp2.png");
+        break;
+      case 3:
+        figur = loadImage("Simp3.png");
+        break;
+    }
   }
   
   void update(){
@@ -20,11 +33,4 @@ class Simp extends Human{
     move();
     colision();
   }
-  
-  void display(){
-    fill(255,0,0);
-    rect(location.x,location.y,h,b);
-    fill(255);
-  }
-  
 }
