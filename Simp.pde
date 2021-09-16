@@ -8,6 +8,8 @@ class Simp extends Human{
     topSpeed = 10;
     speed.x = 1;
     player = false;
+    h = 100;
+    b = 100;
     
     int billede = int(random(1,4));
     switch(billede){
@@ -33,9 +35,5 @@ class Simp extends Human{
     
     move();
     colision();
-  }
-  
-  void display(){
-   super.display();
   }
 }

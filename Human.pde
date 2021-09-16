@@ -1,9 +1,10 @@
 class Human extends Objekt{
-  float health = 1;
+  int health = 1;
   float topSpeed;
   boolean player;
   PImage figur;
   boolean grounded = false;
+  float time;
   
    void move(){
      if(abs(speed.y) > 20)
@@ -30,13 +31,22 @@ class Human extends Objekt{
     }
     // colison med andre personer
     for(Objekt r: objekter){
-      if(abs(location.y - r.location.y)<r.h/2+h/2 && abs(location.x - r.location.x) < r.b/2 && location.x != r.location.x && player){
-        speed.mult(-0.9);
-        health --;
+      if(abs(location.y - r.location.y)<r.h/2+h/2 && abs(location.x - r.location.x) < r.b/2 && location.x != r.location.x && (player||r.arrow)){
+        if(r.arrow && player){break;}
+        if(speed.x > 1){
+          speed.mult(-0.9);
+        }
+        else{
+          speed.x = location.x-r.location.x;
+          speed.mult(0.3);
+        }
+        if (millis() - time > 1000){
+          health --;
+          time = millis();
+        }
       }
-    }
-    
-  }
+    } 
+  } 
   
   void update(){
     if(health <= 0){

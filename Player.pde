@@ -17,11 +17,12 @@ class Player extends Human{
     super.update();
     move();
     colision();
+    
   }
   
   void display(){
     super.display();
-    image(bow,location.x+20,location.y,50,50);
+    image(bow,location.x+dir,location.y,50,50);
     text("HP " +health,20,20);
   }
 }
