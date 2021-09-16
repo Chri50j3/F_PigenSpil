@@ -39,6 +39,9 @@ void keyPressed(){
     case'w':
       if(abs(objekter.get(0).speed.y) < 1.1)
         objekter.get(0).speed.y -= 20;
+      break;
+    case ' ':
+      objekter.add(new Arrow(objekter.get(0).location.x,objekter.get(0).location.y));
   }
   
 }
