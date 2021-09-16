@@ -1,10 +1,9 @@
 ArrayList<Objekt> objekter = new ArrayList<Objekt>();
 ArrayList<Platform> platforme = new ArrayList<Platform>();
-PImage background;
 
 void setup(){
   fullScreen();
-  objekter.add(new Player(100,500));
+  objekter.add(new Player(400,500));
   objekter.add(new Simp(150,500));
   platforme.add(new Platform(150,600,200,20,0));
   platforme.add(new Platform(400,600,200,20,0));
@@ -16,8 +15,12 @@ void setup(){
 void draw(){
   background(200);
   for(Objekt r: objekter){
+    int i = objekter.size();
     r.update();
     r.display();
+    if(i != objekter.size()){
+      break;
+    }
   }
   for(Platform r: platforme){
     r.update();

@@ -1,7 +1,6 @@
 class Human extends Objekt{
-  float health;
+  float health = 1;
   float topSpeed;
-  float h = 100,b = 100;
   boolean player;
   PImage figur;
   boolean grounded = false;
@@ -16,7 +15,7 @@ class Human extends Objekt{
    }
   
   void colision(){
-
+    // colision med platform
     for(Platform r: platforme){
       if(abs(location.y - r.location.y)<r.h/2+h/2 && abs(location.x - r.location.x) < r.w/2){
         grounded = true;
@@ -28,6 +27,20 @@ class Human extends Objekt{
         if(player)
           speed.x *= 0.7;
       }
+    }
+    // colison med andre personer
+    for(Objekt r: objekter){
+      if(abs(location.y - r.location.y)<r.h/2+h/2 && abs(location.x - r.location.x) < r.b/2 && location.x != r.location.x && player){
+        speed.mult(-0.9);
+        health --;
+      }
+    }
+    
+  }
+  
+  void update(){
+    if(health <= 0){
+      objekter.remove(this);
     }
   }
   

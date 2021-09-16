@@ -24,6 +24,7 @@ class Simp extends Human{
   }
   
   void update(){
+    super.update();
     
     if(abs(location.x -startX)>100){
       speed.x *= -1;
@@ -32,5 +33,9 @@ class Simp extends Human{
     
     move();
     colision();
+  }
+  
+  void display(){
+   super.display();
   }
 }
