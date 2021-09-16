@@ -1,5 +1,5 @@
 class Player extends Human{
-  PImage bow;
+  PImage bow,skade,ikSkade;
 
   Player(float x, float y){
     location = new PVector(x,y);
@@ -7,6 +7,8 @@ class Player extends Human{
     topSpeed = 10;
     player = true;
     figur = loadImage("Dreng.png");
+    ikSkade = loadImage("Dreng.png");
+    skade = loadImage("DrengSkade.png");
     bow = loadImage("Bue.png");
     h = 100;
     b = 100;
@@ -14,9 +16,15 @@ class Player extends Human{
   }
   
   void update(){
+    figur = ikSkade;
+    int HP = health;
     super.update();
     move();
     colision();
+    
+    if(health < HP){
+      figur = skade;
+    }
     
   }
   
