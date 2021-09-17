@@ -10,6 +10,7 @@ class Player extends Human{
     ikSkade = loadImage("Dreng.png");
     skade = loadImage("DrengSkade.png");
     bow = loadImage("Bue.png");
+    heart = loadImage("Heart.png"); 
     h = 100;
     b = 100;
     health = 5;
@@ -27,7 +28,6 @@ class Player extends Human{
     }
     
     // Hearts
-    heart = loadImage("Heart.png"); 
     if(health >=5){
       image(heart, 230, 30, 50, 50);
       }

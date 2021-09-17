@@ -1,6 +1,6 @@
 ArrayList<Objekt> objekter = new ArrayList<Objekt>();
 ArrayList<Platform> platforme = new ArrayList<Platform>();
-int dir = 20;
+int dir = 20,level = 1, levels = 2;
 String wonText = "";
 float walk = 0;
 
@@ -9,7 +9,15 @@ void setup(){
   objekter.clear();
   platforme.clear();
   fullScreen();
-  level1();
+  switch(level){
+    case 1:
+      level1();
+      break;
+    case 2:
+      level2();
+      break;
+  }
+
   /* random level generator som var ret dårlig
   objekter.add(new Player(150,500));
   platforme.add(new Platform(150,600,200,20,0));
@@ -35,6 +43,7 @@ void setup(){
   rectMode(CENTER);
   imageMode(CENTER);
   textAlign(CENTER);
+  noStroke();
 }
 
 void draw(){
@@ -93,8 +102,13 @@ void keyReleased(){
 }
   
 void gameOver(boolean won){
-  if(won)
+  if(won){
     wonText = "You Won!";
+    if(level<levels){
+      level ++;
+      setup();
+    }
+  }
   if(!won)
     wonText = "Game Over!";
 }

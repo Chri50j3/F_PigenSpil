@@ -21,13 +21,22 @@ class Human extends Objekt{
     for(Platform r: platforme){
       if(abs(location.y - r.location.y)<r.h/2+h/2 && abs(location.x - r.location.x) < r.w/2){
         grounded = true;
-        if(speed.y > 0)
-          location.y = r.location.y - r.h/2 - h/2;
-        else if(speed.y < 0)
-          location.y = r.location.y + r.h + h/2;
-        speed.y = 0;
-        if(player)
-          speed.x *= 0.7;
+        if(r.w > r.h){
+          if(speed.y > 0)
+            location.y = r.location.y - r.h/2 - h/2;
+          else if(speed.y < 0)
+            location.y = r.location.y + r.h/2 + h/2;
+          speed.y = 0;
+          if(player)
+            speed.x *= 0.7;
+        }
+        else if(r.w < r.h){
+          if(speed.x > 0)
+            location.x = r.location.x - r.w/2;
+          else if(speed.x < 0)
+            location.x = r.location.x + r.w/2;
+          speed.x = 0;
+        }
       }
     }
     // colison med andre personer
