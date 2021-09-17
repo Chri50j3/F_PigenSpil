@@ -1,11 +1,11 @@
 class Girl extends Human{
   
   Girl(float x, float y){
-    location = new PVector(x,y);
+    location = new PVector(x,y-10);
     speed = new PVector();
     figur = loadImage("Girl.png");
-    h = 100;
-    b = 100;
+    h = 120;
+    b = 74;
   }
 
 }
