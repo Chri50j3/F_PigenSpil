@@ -1,22 +1,25 @@
 class Arrow extends Objekt{
   PImage pil;
   PVector kraft = new PVector(dir, -10);
-  PVector velocity = new PVector();
 
   Arrow(float x, float y){
     location = new PVector(x,y);
     pil = loadImage("Pil.png");
     arrow = true;
     h = 45; b = 45;
+    speed = new PVector();
   }
    
   void update(){
-    velocity.add(gravity);
-    location.add(velocity);
+    speed.add(gravity);
+    location.add(speed);
     location.add(kraft);
   }
   
   void display(){
-    image(pil, location.x + 22, location.y, b, h);
+    pushMatrix();
+    scale(dir/20,1);
+    image(pil, (location.x+dir)*(dir/20), location.y, b, h);
+    popMatrix();
   }
 }

@@ -7,7 +7,6 @@ class Simp extends Human{
     speed = new PVector();
     topSpeed = 10;
     speed.x = 1;
-    player = false;
     h = 100;
     b = 100;
     

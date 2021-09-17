@@ -30,7 +30,9 @@ class Player extends Human{
   
   void display(){
     super.display();
-    image(bow,location.x+dir,location.y,50,50);
-    text("HP " +health,20,20);
+    pushMatrix();
+    scale(dir/20,1);
+    image(bow,(location.x+dir)*(dir/20),location.y,50,50);
+    popMatrix();
   }
 }

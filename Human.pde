@@ -1,7 +1,7 @@
 class Human extends Objekt{
   int health = 1;
   float topSpeed;
-  boolean player;
+  boolean player = false;
   PImage figur;
   boolean grounded = false;
   float time;
@@ -33,6 +33,10 @@ class Human extends Objekt{
     for(Objekt r: objekter){
       if(abs(location.y - r.location.y)<r.h/2+h/2 && abs(location.x - r.location.x) < r.b/2 && location.x != r.location.x && (player||r.arrow)){
         if(r.arrow && player){break;}
+        if(r.speed.x == 0 && player){
+          gameOver(true);
+          break;
+        }
         if(speed.x > 1){
           speed.mult(-0.9);
         }
@@ -51,11 +55,15 @@ class Human extends Objekt{
   void update(){
     if(health <= 0){
       objekter.remove(this);
+      if(player){
+        gameOver(false);
+      }
     }
+    if(location.y > height)
+      health = 0;
   }
   
   void display(){
     image(figur,location.x,location.y,b,h);
   }
-  
 }
