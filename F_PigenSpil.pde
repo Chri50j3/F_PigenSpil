@@ -1,6 +1,6 @@
 ArrayList<Objekt> objekter = new ArrayList<Objekt>();
 ArrayList<Platform> platforme = new ArrayList<Platform>();
-int dir = 20,level = 1, levels = 2;
+int dir = 20,level = 1, levels = 3;
 String wonText = "";
 float walk = 0;
 
