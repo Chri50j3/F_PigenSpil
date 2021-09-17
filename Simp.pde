@@ -1,7 +1,7 @@
 class Simp extends Human{
-  float startX;
+  float startX,move;
 
-  Simp(float x, float y){
+  Simp(float x, float y,float move_){
     location = new PVector(x,y);
     startX = x;
     speed = new PVector();
@@ -9,6 +9,7 @@ class Simp extends Human{
     speed.x = 1;
     h = 100;
     b = 100;
+    move = move_;
     
     int billede = int(random(1,4));
     switch(billede){
@@ -27,7 +28,7 @@ class Simp extends Human{
   void update(){
     super.update();
     
-    if(abs(location.x -startX)>100){
+    if(abs(location.x -startX)>move/2-15){
       speed.x *= -1;
       location.x += speed.x;
     }

@@ -10,8 +10,9 @@ class Human extends Objekt{
      if(abs(speed.y) > 20)
        speed.y *= 0.9;
      location.add(speed);
-     if(!grounded)
+     if(!grounded){
        speed.y += gravity.y;
+     }
      grounded = false;
    }
   

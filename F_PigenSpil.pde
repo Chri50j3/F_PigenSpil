@@ -2,6 +2,7 @@ ArrayList<Objekt> objekter = new ArrayList<Objekt>();
 ArrayList<Platform> platforme = new ArrayList<Platform>();
 int dir = 20;
 String wonText = "";
+float walk = 0;
 
 void setup(){
   wonText = "";
@@ -46,6 +47,7 @@ void draw(){
       break;
     }
   }
+  objekter.get(0).speed.x += walk;
   for(Platform r: platforme){
     r.update();
     r.display();
@@ -59,22 +61,34 @@ void draw(){
 void keyPressed(){
   switch(key){
     case'a':
-      objekter.get(0).speed.x -= 1;
+      walk = -0.5;
       dir = -20;
       break;
     case'd':
-      objekter.get(0).speed.x += 1;
+      walk = 0.5;
       dir = 20;
       break;
     case'w':
       if(abs(objekter.get(0).speed.y) < 1.1)
         objekter.get(0).speed.y -= 20;
+        walk = 0;
       break;
     case ' ':
       objekter.add(new Arrow(objekter.get(0).location.x,objekter.get(0).location.y));
       break;
     case 'r':
       setup();
+  }
+}
+
+void keyReleased(){
+  switch(key){
+    case'a':
+      walk = 0;
+      break;
+    case'd':
+      walk = 0;
+      break;
   }
 }
   

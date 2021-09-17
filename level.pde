@@ -18,6 +18,6 @@ void level1(){
   objekter.add(new Girl(1650,140));
   
   //simps
-  objekter.add(new Simp(1150,300));
-
+  objekter.add(new Simp(1150,300,300));
+  objekter.add(new Simp(750,800,300));
 }
