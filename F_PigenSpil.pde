@@ -3,8 +3,9 @@ ArrayList<Platform> platforme = new ArrayList<Platform>();
 int dir = 20,level = 1, levels = 3;
 String wonText = "";
 float walk = 0;
+boolean keys = false;
 
-//bagrund
+//baggrund
 Locker skab1;
 Locker skab2;
 Locker skab3;
@@ -13,6 +14,7 @@ Locker skab5;
 Locker skab6;
 
 void setup(){
+  keys = false;
   wonText = "";
   objekter.clear();
   platforme.clear();
@@ -113,9 +115,37 @@ void draw(){
   textSize(200);
   text(wonText,width/2,height/2);
   
+  if(!keys){
+    rect(100,200,90,90,5);
+    rect(200,200,90,90,5);
+    rect(300,200,90,90,5);
+    rect(400,200,90,90,5);
+    rect(200,300,290,90,5);
+    
+    fill(0);
+    textSize(40);
+    
+    text("D",200,210);
+    text("A",100,210);
+    text("F",300,210);
+    text("R",400,210);
+    text("SPACE",200,310);
+    
+    textSize(20);
+    text("Right",200,230);
+    text("Left",100,230);
+    text("Shoot
+    ",300,230);
+    text("Restart",400,230);
+    text("jump",200,330);
+
+
+  }
+  
 }
 
 void keyPressed(){
+  keys = true;
   switch(key){
     case'a':
       walk = -0.5;
@@ -125,12 +155,12 @@ void keyPressed(){
       walk = 0.5;
       dir = 20;
       break;
-    case'w':
+    case' ':
       if(abs(objekter.get(0).speed.y) < 1.1)
         objekter.get(0).speed.y -= 20;
         walk = 0;
       break;
-    case ' ':
+    case 'f':
       objekter.add(new Arrow(objekter.get(0).location.x,objekter.get(0).location.y));
       break;
     case 'r':

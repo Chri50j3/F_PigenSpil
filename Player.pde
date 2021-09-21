@@ -29,19 +29,19 @@ class Player extends Human{
     
     // Hearts
     if(health >=5){
-      image(heart, 230, 30, 50, 50);
+      image(heart, 230+50, 30, 50, 50);
       }
     if(health >=4){
-      image(heart, 180, 30, 50, 50);
+      image(heart, 180+40, 30, 50, 50);
       }
     if(health >=3){
-      image(heart, 130, 30, 50, 50);      
+      image(heart, 130+30, 30, 50, 50);      
       }
     if(health >=2){
-      image(heart, 80, 30, 50, 50);
+      image(heart, 80+20, 30, 50, 50);
       }
     if(health >=1){
-      image(heart, 30, 30, 50, 50);
+      image(heart, 30+10, 30, 50, 50);
       }
 
 }
