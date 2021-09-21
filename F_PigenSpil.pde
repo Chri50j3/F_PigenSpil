@@ -16,7 +16,8 @@ void setup(){
   wonText = "";
   objekter.clear();
   platforme.clear();
-  size(1920,1080);
+  fullScreen();
+  //size(1920,1080);
   switch(level){
     case 1:
       level1();
@@ -59,13 +60,14 @@ void setup(){
 
 void draw(){
   //baggrund
+  rectMode(CORNER);
   background(219, 212, 193);
-  skab1 = new Locker(5, (height/1.6 - 230));
-  skab2 = new Locker(200, (height/1.6 - 230));
-  skab3 = new Locker(400, (height/1.6 - 230));
-  skab4 = new Locker(960, (height/1.6 - 230));
-  skab5 = new Locker(1160, (height/1.6 - 230));
-  skab6 = new Locker(1360, (height/1.6 - 230));
+  skab1 = new Locker(0, (height/1.6 - 230));
+  skab2 = new Locker(width/8*1, (height/1.6 - 230));
+  skab3 = new Locker(width/8*2, (height/1.6 - 230));
+  skab4 = new Locker(width/8*5, (height/1.6 - 230));
+  skab5 = new Locker(width/8*6, (height/1.6 - 230));
+  skab6 = new Locker(width/8*7, (height/1.6 - 230));
   
   noStroke();
   fill(184, 180, 171); 
@@ -73,12 +75,12 @@ void draw(){
   stroke(0);
   strokeWeight(0.5);
   fill(105,41,22);
-  rect(600, (height/1.6 - 240), 260, 240);
+  rect(width/2-200, (height/1.6 - 240), 260, 240);
   fill(138, 137, 135);
-  circle(710, 450, 10);
-  circle(750, 450, 10);
+  circle(width/2-200+260/2-20, (height/1.6 - 240)+240/2, 10);
+  circle(width/2-200+260/2+20, (height/1.6 - 240)+240/2, 10);
   stroke(0);
-  line(730, (height/1.6 - 240), 730, height/1.6);
+  line(width/2-200+260/2, (height/1.6 - 240),width/2-200+260/2, height/1.6);
   stroke(0);
   strokeWeight(0.5);
   
@@ -89,6 +91,9 @@ void draw(){
   skab5.display();
   skab6.display();
   
+  rectMode(CENTER);  
+  noStroke();
+
 //Andet
   for(Objekt r: objekter){
     int i = objekter.size();
@@ -104,6 +109,7 @@ void draw(){
     r.display();
   }
   
+  fill(255);
   textSize(200);
   text(wonText,width/2,height/2);
   
