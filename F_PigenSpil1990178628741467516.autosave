@@ -4,14 +4,6 @@ int dir = 20,level = 1, levels = 3;
 String wonText = "";
 float walk = 0;
 
-//bagrund
-Locker skab1;
-Locker skab2;
-Locker skab3;
-Locker skab4;
-Locker skab5;
-Locker skab6;
-
 void setup(){
   wonText = "";
   objekter.clear();
@@ -58,38 +50,7 @@ void setup(){
 }
 
 void draw(){
-  //baggrund
-  background(219, 212, 193);
-  skab1 = new Locker(5, (height/1.6 - 230));
-  skab2 = new Locker(200, (height/1.6 - 230));
-  skab3 = new Locker(400, (height/1.6 - 230));
-  skab4 = new Locker(960, (height/1.6 - 230));
-  skab5 = new Locker(1160, (height/1.6 - 230));
-  skab6 = new Locker(1360, (height/1.6 - 230));
-  
-  noStroke();
-  fill(184, 180, 171); 
-  rect(0, height/1.6, width, height);
-  stroke(0);
-  strokeWeight(0.5);
-  fill(105,41,22);
-  rect(600, (height/1.6 - 240), 260, 240);
-  fill(138, 137, 135);
-  circle(710, 450, 10);
-  circle(750, 450, 10);
-  stroke(0);
-  line(730, (height/1.6 - 240), 730, height/1.6);
-  stroke(0);
-  strokeWeight(0.5);
-  
-  skab1.display();
-  skab2.display();
-  skab3.display();
-  skab4.display();
-  skab5.display();
-  skab6.display();
-  
-//Andet
+  background(200);
   for(Objekt r: objekter){
     int i = objekter.size();
     r.update();
