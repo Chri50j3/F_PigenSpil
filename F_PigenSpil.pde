@@ -134,8 +134,7 @@ void draw(){
     textSize(20);
     text("Right",200,230);
     text("Left",100,230);
-    text("Shoot
-    ",300,230);
+    text("Shoot",300,230);
     text("Restart",400,230);
     text("jump",200,330);
 
