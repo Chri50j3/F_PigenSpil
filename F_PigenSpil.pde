@@ -16,6 +16,9 @@ void setup(){
     case 2:
       level2();
       break;
+    case 3:
+      level3();
+      break;
   }
 
   /* random level generator som var ret dårlig
