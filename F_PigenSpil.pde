@@ -138,6 +138,12 @@ void draw(){
     text("Restart",400,230);
     text("jump",200,330);
 
+    if(level == 1){
+      textSize(30);
+      text("Målet for spillet er at få fat på pigen.", 1350,850);
+      text("Du skal igennem banen uden at støde ind i simpsene da de skader dig.", 1350,890);
+      text("Du kan dog skyde dem hvis de er i vejen for din vej til pigen.", 1350,930);
+    }
 
   }
   
