@@ -1,9 +1,13 @@
+import de.bezier.data.sql.*;
+
 ArrayList<Objekt> objekter = new ArrayList<Objekt>();
 ArrayList<Platform> platforme = new ArrayList<Platform>();
 int dir = 20,level = 1, levels = 3;
 String wonText = "";
 float walk = 0;
 boolean keys = false;
+
+SQLite db;
 
 //baggrund
 Locker skab1;
@@ -58,6 +62,12 @@ void setup(){
   imageMode(CENTER);
   textAlign(CENTER);
   noStroke();
+  
+  db = new SQLite( this, "TiderDatabase.sqlite" );
+  
+  if ( db.connect() ){
+    db.query( "SELECT Initialer , Minutter , Sekunder FROM Tider;" );
+  }
 }
 
 void draw(){
@@ -114,6 +124,10 @@ void draw(){
   fill(255);
   textSize(200);
   text(wonText,width/2,height/2);
+  
+  while(db.next()){
+    println(db.getString("Initialer") + " : " + db.getInt("Minutter") + ":" + db.getInt("Sekunder"));
+  }
   
   if(!keys){
     rect(100,200,90,90,5);
@@ -190,6 +204,10 @@ void gameOver(boolean won){
     if(level<levels){
       level ++;
       setup();
+    }
+    else{
+      String navn = "Bik";
+      insert(navn,floor(millis()/60000),floor((millis()%60000)*60));
     }
   }
   if(!won)
